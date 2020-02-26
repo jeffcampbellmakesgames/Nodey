@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using UnityEngine;
@@ -15,7 +16,7 @@ namespace XNode {
 
             Dictionary<string, NodePort> staticPorts = new Dictionary<string, NodePort>();
             Dictionary<string, List<NodePort>> removedPorts = new Dictionary<string, List<NodePort>>();
-            System.Type nodeType = node.GetType();
+            Type nodeType = node.GetType();
 
             List<NodePort> dynamicListPorts = new List<NodePort>();
 
@@ -67,14 +68,14 @@ namespace XNode {
                     ports.Add(staticPort.fieldName, port);
                 }
             }
-            
+
             // Finally, make sure dynamic list port settings correspond to the settings of their "backing port"
             foreach (NodePort listPort in dynamicListPorts) {
                 // At this point we know that ports here are dynamic list ports
                 // which have passed name/"backing port" checks, ergo we can proceed more safely.
                 string backingPortName = listPort.fieldName.Split(' ')[0];
                 NodePort backingPort = staticPorts[backingPortName];
-                
+
                 // Update port constraints. Creating a new port instead will break the editor, mandating the need for setters.
                 listPort.ValueType = GetBackingValueType(backingPort.ValueType);
                 listPort.direction = backingPort.direction;
@@ -86,9 +87,9 @@ namespace XNode {
         /// <summary>
         /// Extracts the underlying types from arrays and lists, the only collections for dynamic port lists
         /// currently supported. If the given type is not applicable (i.e. if the dynamic list port was not
-        /// defined as an array or a list), returns the given type itself. 
+        /// defined as an array or a list), returns the given type itself.
         /// </summary>
-        private static System.Type GetBackingValueType(System.Type portValType) {
+        private static Type GetBackingValueType(Type portValType) {
             if (portValType.HasElementType) {
                 return portValType.GetElementType();
             }
@@ -105,10 +106,10 @@ namespace XNode {
             // Thus, we need to check for attributes... (but at least we don't need to look at all fields this time)
             string[] fieldNameParts = port.fieldName.Split(' ');
             if (fieldNameParts.Length != 2) return false;
-            
+
             FieldInfo backingPortInfo = port.node.GetType().GetField(fieldNameParts[0]);
             if (backingPortInfo == null) return false;
-            
+
             object[] attribs = backingPortInfo.GetCustomAttributes(true);
             return attribs.Any(x => {
                 Node.InputAttribute inputAttribute = x as Node.InputAttribute;
@@ -117,31 +118,24 @@ namespace XNode {
                        outputAttribute != null && outputAttribute.dynamicPortList;
             });
         }
-        
+
         /// <summary> Cache node types </summary>
         private static void BuildCache() {
             portDataCache = new PortDataCache();
-            System.Type baseType = typeof(Node);
-            List<System.Type> nodeTypes = new List<System.Type>();
-            System.Reflection.Assembly[] assemblies = System.AppDomain.CurrentDomain.GetAssemblies();
+            Type baseType = typeof(Node);
+            List<Type> nodeTypes = new List<Type>();
+            Assembly[] assemblies = AppDomain.CurrentDomain.GetAssemblies();
 
             // Loop through assemblies and add node types to list
-            foreach (Assembly assembly in assemblies) {
+            foreach (Assembly assembly in assemblies)
+            {
                 // Skip certain dlls to improve performance
                 string assemblyName = assembly.GetName().Name;
-                int index = assemblyName.IndexOf('.');
-                if (index != -1) assemblyName = assemblyName.Substring(0, index);
-                switch (assemblyName) {
-                    // The following assemblies, and sub-assemblies (eg. UnityEngine.UI) are skipped
-                    case "UnityEditor":
-                    case "UnityEngine":
-                    case "System":
-                    case "mscorlib":
-                    case "Microsoft":
-                        continue;
-                    default:
-                        nodeTypes.AddRange(assembly.GetTypes().Where(t => !t.IsAbstract && baseType.IsAssignableFrom(t)).ToArray());
-                        break;
+                if (!XNodeRuntimeConstants.IGNORE_ASSEMBLY_PREFIXES.Any(x => assemblyName.StartsWith(x)))
+                {
+                    IEnumerable<Type> foundNodeTypes = assembly.GetTypes()
+                        .Where(t => !t.IsAbstract && baseType.IsAssignableFrom(t));
+                    nodeTypes.AddRange(foundNodeTypes);
                 }
             }
 
@@ -150,19 +144,19 @@ namespace XNode {
             }
         }
 
-        public static List<FieldInfo> GetNodeFields(System.Type nodeType) {
-            List<System.Reflection.FieldInfo> fieldInfo = new List<System.Reflection.FieldInfo>(nodeType.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance));
+        public static List<FieldInfo> GetNodeFields(Type nodeType) {
+            List<FieldInfo> fieldInfo = new List<FieldInfo>(nodeType.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance));
 
             // GetFields doesnt return inherited private fields, so walk through base types and pick those up
-            System.Type tempType = nodeType;
-            while ((tempType = tempType.BaseType) != typeof(XNode.Node)) {
+            Type tempType = nodeType;
+            while ((tempType = tempType.BaseType) != typeof(Node)) {
                 fieldInfo.AddRange(tempType.GetFields(BindingFlags.NonPublic | BindingFlags.Instance));
             }
             return fieldInfo;
         }
 
-        private static void CachePorts(System.Type nodeType) {
-            List<System.Reflection.FieldInfo> fieldInfo = GetNodeFields(nodeType);
+        private static void CachePorts(Type nodeType) {
+            List<FieldInfo> fieldInfo = GetNodeFields(nodeType);
 
             for (int i = 0; i < fieldInfo.Count; i++) {
 
@@ -181,9 +175,9 @@ namespace XNode {
             }
         }
 
-        [System.Serializable]
-        private class PortDataCache : Dictionary<System.Type, List<NodePort>>, ISerializationCallbackReceiver {
-            [SerializeField] private List<System.Type> keys = new List<System.Type>();
+        [Serializable]
+        private class PortDataCache : Dictionary<Type, List<NodePort>>, ISerializationCallbackReceiver {
+            [SerializeField] private List<Type> keys = new List<Type>();
             [SerializeField] private List<List<NodePort>> values = new List<List<NodePort>>();
 
             // save the dictionary to lists
@@ -198,13 +192,19 @@ namespace XNode {
 
             // load dictionary from lists
             public void OnAfterDeserialize() {
-                this.Clear();
+                Clear();
 
                 if (keys.Count != values.Count)
-                    throw new System.Exception(string.Format("there are {0} keys and {1} values after deserialization. Make sure that both key and value types are serializable."));
+                {
+	                var msg = string.Format(
+		                XNodeRuntimeConstants.MISMATCHED_KEYS_TO_VALUES_EXCEPTION_MESSAGE,
+		                keys.Count,
+		                values.Count);
+	                throw new Exception(msg);
+                }
 
                 for (int i = 0; i < keys.Count; i++)
-                    this.Add(keys[i], values[i]);
+                    Add(keys[i], values[i]);
             }
         }
     }
