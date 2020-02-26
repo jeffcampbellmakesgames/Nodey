@@ -1,26 +1,44 @@
 ﻿using System.Linq;
 using UnityEngine;
+using XNode;
 
-namespace XNode.Examples.LogicToy {
-	[NodeWidth(140), NodeTint(70,70,100)]
-	public class ToggleNode : LogicNode {
-		[Input, HideInInspector] public bool input;
-		[Output, HideInInspector] public bool output;
-		public override bool led { get { return output; } }
+namespace Examples.LogicToy
+{
+	[NodeWidth(140)]
+	[NodeTint(70, 70, 100)]
+	public class ToggleNode : LogicNode
+	{
+		public override bool led
+		{
+			get { return output; }
+		}
 
-		protected override void OnInputChanged() {
-			bool newInput = GetPort("input").GetInputValues<bool>().Any(x => x);
+		[Input]
+		[HideInInspector]
+		public bool input;
 
-			if (!input && newInput) {
+		[Output]
+		[HideInInspector]
+		public bool output;
+
+		protected override void OnInputChanged()
+		{
+			var newInput = GetPort("input").GetInputValues<bool>().Any(x => x);
+
+			if (!input && newInput)
+			{
 				input = newInput;
 				output = !output;
 				SendSignal(GetPort("output"));
-			} else if (input && !newInput) {
+			}
+			else if (input && !newInput)
+			{
 				input = newInput;
 			}
 		}
 
-		public override object GetValue(NodePort port) {
+		public override object GetValue(NodePort port)
+		{
 			return output;
 		}
 	}
