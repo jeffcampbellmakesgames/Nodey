@@ -1,18 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using Examples.MathGraph;
 using UnityEngine.UI;
-using XNode.Examples.MathNodes;
 
-namespace XNode.Examples.RuntimeMathNodes {
-	public class UGUIMathNode : UGUIMathBaseNode {
-		public InputField valA;
-		public InputField valB;
+namespace Examples.RuntimeMathGraph
+{
+	public class UGUIMathNode : UGUIMathBaseNode
+	{
 		public Dropdown dropDown;
 
 		private MathNode mathNode;
+		public InputField valA;
+		public InputField valB;
 
-		public override void Start() {
+		public override void Start()
+		{
 			base.Start();
 			mathNode = node as MathNode;
 
@@ -22,27 +22,31 @@ namespace XNode.Examples.RuntimeMathNodes {
 			UpdateGUI();
 		}
 
-		public override void UpdateGUI() {
-			NodePort portA = node.GetInputPort("a");
-			NodePort portB = node.GetInputPort("b");
+		public override void UpdateGUI()
+		{
+			var portA = node.GetInputPort("a");
+			var portB = node.GetInputPort("b");
 			valA.gameObject.SetActive(!portA.IsConnected);
 			valB.gameObject.SetActive(!portB.IsConnected);
 
 			valA.text = mathNode.a.ToString();
 			valB.text = mathNode.b.ToString();
-			dropDown.value = (int) mathNode.mathType;
+			dropDown.value = (int)mathNode.mathType;
 		}
 
-		private void OnChangeValA(string val) {
+		private void OnChangeValA(string val)
+		{
 			mathNode.a = float.Parse(valA.text);
 		}
 
-		private void OnChangeValB(string val) {
+		private void OnChangeValB(string val)
+		{
 			mathNode.b = float.Parse(valB.text);
 		}
 
-		private void OnChangeDropdown(int val) {
-			mathNode.mathType = (MathNode.MathType) val;
+		private void OnChangeDropdown(int val)
+		{
+			mathNode.mathType = (MathNode.MathType)val;
 		}
 	}
 }

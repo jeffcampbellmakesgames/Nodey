@@ -1,15 +1,22 @@
 ﻿using UnityEngine;
+using XNode;
 
-namespace XNode.Examples.MathNodes {
-    public class Vector : XNode.Node {
-        [Input] public float x, y, z;
-        [Output] public Vector3 vector;
+namespace Examples.MathGraph
+{
+	public class Vector : Node
+	{
+		[Output]
+		public Vector3 vector;
 
-        public override object GetValue(XNode.NodePort port) {
-            vector.x = GetInputValue<float>("x", this.x);
-            vector.y = GetInputValue<float>("y", this.y);
-            vector.z = GetInputValue<float>("z", this.z);
-            return vector;
-        }
-    }
+		[Input]
+		public float x, y, z;
+
+		public override object GetValue(NodePort port)
+		{
+			vector.x = GetInputValue("x", x);
+			vector.y = GetInputValue("y", y);
+			vector.z = GetInputValue("z", z);
+			return vector;
+		}
+	}
 }
