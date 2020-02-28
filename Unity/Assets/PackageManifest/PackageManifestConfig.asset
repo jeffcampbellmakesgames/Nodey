@@ -19,7 +19,7 @@ MonoBehaviour:
   legacyPackageDestinationPath: 
   packageName: com.jeffcampbellmakesgames.xnode
   displayName: JCMG xNode
-  packageVersion: 1.0.0
+  packageVersion: 1.0.1
   unityVersion: 2019.1
   description: xNode provides a set of APIs and an editor interface for creating
     and editing custom node graphs.
