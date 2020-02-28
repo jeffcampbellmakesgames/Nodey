@@ -251,7 +251,16 @@ namespace XNode
 			var tempType = nodeType;
 			while ((tempType = tempType.BaseType) != typeof(Node))
 			{
-				fieldInfo.AddRange(tempType.GetFields(BindingFlags.NonPublic | BindingFlags.Instance));
+				var parentTypeFields = tempType.GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
+				for (int i = 0; i < parentTypeFields.Length; i++)
+				{
+					// Ensure that we do not already have a member with this type and name
+					var parentTypeField = parentTypeFields[i];
+					if (fieldInfo.TrueForAll(x => x.Name != parentTypeField.Name))
+					{
+						fieldInfo.Add(parentTypeField);
+					}
+				}
 			}
 
 			return fieldInfo;
