@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
+using JCMG.Nodey;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using XNode;
 
 namespace Examples.RuntimeMathGraph
 {

@@ -1,6 +1,6 @@
-﻿using UnityEditor;
+﻿using JCMG.Nodey.Editor;
+using UnityEditor;
 using UnityEngine;
-using xNode.Editor;
 
 namespace Examples.LogicToy.Editor
 {

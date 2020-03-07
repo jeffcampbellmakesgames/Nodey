@@ -15,15 +15,21 @@ MonoBehaviour:
   packageSourcePaths:
   - Assets/JCMG
   packageIgnorePaths: []
-  packageDestinationPath: ../../xNode-Release
+  packageDestinationPath: ../../Nodey-Release
   legacyPackageDestinationPath: 
-  packageName: com.jeffcampbellmakesgames.xnode
-  displayName: JCMG xNode
-  packageVersion: 1.0.1
+  packageName: com.jeffcampbellmakesgames.nodey
+  displayName: JCMG Nodey
+  packageVersion: 1.2.0
   unityVersion: 2019.1
-  description: xNode provides a set of APIs and an editor interface for creating
-    and editing custom node graphs.
+  description: JCMG Nodey provides a set of APIs and an editor interface for creating
+    and editing custom node graphs. It is a fork of XNode that aims to support up
+    to the oldest supported LTS Unity version and provide a more robust experience
+    based on a modern code style.
   category: Editor
-  keywords: []
+  keywords:
+  - Node
+  - Nodey
+  - Graph
+  - JCMG
   dependencies: []
   _id: b38fa1a8-86fa-4b85-8ef5-23fc5548698b

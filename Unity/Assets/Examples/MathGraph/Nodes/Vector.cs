@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using XNode;
+﻿using JCMG.Nodey;
+using UnityEngine;
 
 namespace Examples.MathGraph
 {

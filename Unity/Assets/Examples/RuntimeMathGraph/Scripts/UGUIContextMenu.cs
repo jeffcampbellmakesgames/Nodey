@@ -1,8 +1,8 @@
 ﻿using System;
 using Examples.MathGraph;
+using JCMG.Nodey;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using XNode;
 
 namespace Examples.RuntimeMathGraph
 {

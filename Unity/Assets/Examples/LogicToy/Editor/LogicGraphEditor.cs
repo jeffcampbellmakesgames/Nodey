@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JCMG.Nodey;
+using JCMG.Nodey.Editor;
 using UnityEditor;
 using UnityEngine;
-using XNode;
-using xNode.Editor;
 
 namespace Examples.LogicToy.Editor
 {

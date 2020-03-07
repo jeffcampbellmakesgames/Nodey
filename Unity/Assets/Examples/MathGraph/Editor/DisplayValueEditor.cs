@@ -1,5 +1,5 @@
-﻿using UnityEditor;
-using xNode.Editor;
+﻿using JCMG.Nodey.Editor;
+using UnityEditor;
 
 namespace Examples.MathGraph.Editor
 {

@@ -1,6 +1,6 @@
 ﻿using System.Linq;
+using JCMG.Nodey;
 using UnityEngine;
-using XNode;
 
 namespace Examples.LogicToy
 {

@@ -1,5 +1,5 @@
 ﻿using System;
-using xNode.Editor;
+using JCMG.Nodey.Editor;
 
 namespace Examples.MathGraph.Editor
 {

@@ -1,5 +1,5 @@
+using JCMG.Nodey;
 using UnityEngine;
-using XNode;
 
 namespace Examples.StateMachine
 {

@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using Examples.MathGraph;
+using JCMG.Nodey;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using XNode;
 
 namespace Examples.RuntimeMathGraph
 {
