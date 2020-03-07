@@ -1,4 +1,4 @@
-namespace XNode
+namespace JCMG.xNode
 {
 	public enum ConnectionType
 	{

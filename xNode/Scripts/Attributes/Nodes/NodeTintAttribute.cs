@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace XNode
+namespace JCMG.xNode
 {
 	[AttributeUsage(AttributeTargets.Class)]
 	public class NodeTintAttribute : Attribute

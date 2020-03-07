@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace xNode.Editor
+namespace JCMG.xNode.Editor
 {
 	[Serializable]
 	public class NodeEditorSettings : ISerializationCallbackReceiver

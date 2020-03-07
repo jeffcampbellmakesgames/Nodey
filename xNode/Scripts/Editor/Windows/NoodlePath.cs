@@ -1,4 +1,4 @@
-﻿namespace xNode.Editor
+﻿namespace JCMG.xNode.Editor
 {
 	public enum NoodlePath
 	{

@@ -1,7 +1,6 @@
 using System;
-using XNode;
 
-namespace xNode.Editor
+namespace JCMG.xNode.Editor
 {
 	[AttributeUsage(AttributeTargets.Class)]
 	public class CustomNodeEditorAttribute : Attribute,

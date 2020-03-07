@@ -4,7 +4,7 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
-namespace XNode
+namespace JCMG.xNode
 {
 	[Serializable]
 	public class NodePort

@@ -9,7 +9,7 @@ using UnityEditor.ProjectWindowCallback;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace xNode.Editor
+namespace JCMG.xNode.Editor
 {
 	/// <summary> A set of editor-only utilities and extensions for xNode </summary>
 	public static class NodeEditorUtilities

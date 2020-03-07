@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.Callbacks;
 using UnityEngine;
-using XNode;
 using Object = UnityEngine.Object;
 
-namespace xNode.Editor
+namespace JCMG.xNode.Editor
 {
 	[InitializeOnLoad]
 	public partial class NodeEditorWindow : EditorWindow
@@ -153,11 +152,11 @@ namespace xNode.Editor
 		/// <summary> Make sure the graph editor is assigned and to the right object </summary>
 		private void ValidateGraphEditor()
 		{
-			var graphEditor = NodeGraphEditor.GetEditor(graph, this);
-			if (this.graphEditor != graphEditor)
+			var newGraphEditor = NodeGraphEditor.GetEditor(graph, this);
+			if (newGraphEditor != null && graphEditor != newGraphEditor)
 			{
-				this.graphEditor = graphEditor;
-				graphEditor.OnOpen();
+				graphEditor = newGraphEditor;
+				newGraphEditor.OnOpen();
 			}
 		}
 

@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
-using XNode;
 using Object = UnityEngine.Object;
 
-namespace xNode.Editor
+namespace JCMG.xNode.Editor
 {
 	public partial class NodeEditorWindow
 	{

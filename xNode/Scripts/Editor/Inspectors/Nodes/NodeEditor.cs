@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
-using XNode;
 
 #if ODIN_INSPECTOR
 using Sirenix.OdinInspector.Editor;
@@ -11,7 +10,7 @@ using Sirenix.Utilities;
 using Sirenix.Utilities.Editor;
 #endif
 
-namespace xNode.Editor
+namespace JCMG.xNode.Editor
 {
 	/// <summary>
 	///     Base class to derive custom Node editors from. Use this to create your own custom inspectors and editors for

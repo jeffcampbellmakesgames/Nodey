@@ -4,10 +4,9 @@ using System.Linq;
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
-using XNode;
 using Object = UnityEngine.Object;
 
-namespace xNode.Editor
+namespace JCMG.xNode.Editor
 {
 	/// <summary> Contains reflection-related extensions built for xNode </summary>
 	public static class NodeEditorReflection

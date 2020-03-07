@@ -1,8 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
-using XNode;
 
-namespace xNode.Editor
+namespace JCMG.xNode.Editor
 {
 	/// <summary> Utility for renaming assets </summary>
 	public class RenamePopup : EditorWindow

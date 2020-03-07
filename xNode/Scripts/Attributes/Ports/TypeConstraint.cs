@@ -1,4 +1,4 @@
-namespace XNode
+namespace JCMG.xNode
 {
 	/// <summary> Tells which types of input to allow </summary>
 	public enum TypeConstraint

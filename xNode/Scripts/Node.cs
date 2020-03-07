@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace XNode
+namespace JCMG.xNode
 {
 	/// <summary> Base class for all nodes </summary>
 	/// <example>

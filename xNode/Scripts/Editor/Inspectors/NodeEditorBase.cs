@@ -7,7 +7,7 @@ using UnityEngine;
 using Sirenix.OdinInspector.Editor;
 #endif
 
-namespace xNode.Editor
+namespace JCMG.xNode.Editor
 {
 	/// <summary> Handles caching of custom editor classes and their target types. Accessible with GetEditor(Type type) </summary>
 	/// <typeparam name = "T"> Editor Type. Should be the type of the deriving script itself (eg. NodeEditor) </typeparam>

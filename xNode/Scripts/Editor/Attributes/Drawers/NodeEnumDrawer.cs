@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace xNode.Editor
+namespace JCMG.xNode.Editor
 {
 	[CustomPropertyDrawer(typeof(NodeEnumAttribute))]
 	public class NodeEnumDrawer : PropertyDrawer

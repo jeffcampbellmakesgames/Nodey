@@ -1,6 +1,6 @@
 using System;
 
-namespace XNode
+namespace JCMG.xNode
 {
 	[AttributeUsage(AttributeTargets.Class)]
 	public class CreateNodeMenuAttribute : Attribute

@@ -1,10 +1,9 @@
 ﻿using System;
 using UnityEditor;
 using UnityEngine;
-using XNode;
 using Object = UnityEngine.Object;
 
-namespace xNode.Editor
+namespace JCMG.xNode.Editor
 {
 	/// <summary> Base class to derive custom Node Graph editors from. Use this to override how graphs are drawn in the editor. </summary>
 	[CustomNodeGraphEditor(typeof(NodeGraph))]

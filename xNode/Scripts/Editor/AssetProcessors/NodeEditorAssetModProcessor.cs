@@ -1,9 +1,8 @@
 ﻿using System.IO;
 using UnityEditor;
 using UnityEngine;
-using XNode;
 
-namespace xNode.Editor
+namespace JCMG.xNode.Editor
 {
 	/// <summary> Deals with modified assets </summary>
 	internal class NodeEditorAssetModProcessor : UnityEditor.AssetModificationProcessor

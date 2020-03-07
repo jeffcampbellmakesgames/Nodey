@@ -1,6 +1,6 @@
 using System;
 
-namespace XNode
+namespace JCMG.xNode
 {
 	/// <summary>
 	///     Mark a serializable field as an input port. You can access this through <see cref = "GetInputPort(string)"/>

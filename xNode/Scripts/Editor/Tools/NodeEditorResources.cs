@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace xNode.Editor
+namespace JCMG.xNode.Editor
 {
 	public static class NodeEditorResources
 	{

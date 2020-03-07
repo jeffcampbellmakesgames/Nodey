@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
-using XNode;
 using Object = UnityEngine.Object;
 
-namespace xNode.Editor
+namespace JCMG.xNode.Editor
 {
 	/// <summary> Contains GUI methods </summary>
 	public partial class NodeEditorWindow

@@ -4,10 +4,9 @@ using System.Linq;
 using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
-using XNode;
 using Object = UnityEngine.Object;
 
-namespace xNode.Editor
+namespace JCMG.xNode.Editor
 {
 	/// <summary> xNode-specific version of <see cref = "EditorGUILayout"/> </summary>
 	public static class NodeEditorGUILayout

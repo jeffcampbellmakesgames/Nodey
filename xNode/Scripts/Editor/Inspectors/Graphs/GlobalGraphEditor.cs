@@ -1,6 +1,5 @@
 ﻿using UnityEditor;
 using UnityEngine;
-using XNode;
 
 #if ODIN_INSPECTOR
 using Sirenix.OdinInspector.Editor;
@@ -8,7 +7,7 @@ using Sirenix.Utilities;
 using Sirenix.Utilities.Editor;
 #endif
 
-namespace xNode.Editor
+namespace JCMG.xNode.Editor
 {
 	/// <summary> Override graph inspector to show an 'Open Graph' button at the top </summary>
 	[CustomEditor(typeof(NodeGraph), true)]

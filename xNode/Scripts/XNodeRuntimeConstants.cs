@@ -1,4 +1,4 @@
-namespace XNode
+namespace JCMG.xNode
 {
 	/// <summary> A helper class containing shared constants. </summary>
 	public static class XNodeRuntimeConstants

@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace xNode.Editor
+namespace JCMG.xNode.Editor
 {
 	public static class NodeEditorPreferences
 	{

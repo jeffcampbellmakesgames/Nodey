@@ -1,11 +1,7 @@
 {
-    "name": "XNode.Editor",
-    "references": [
-        "GUID:b8e24fd1eb19b4226afebb2810e3c19b"
-    ],
-    "includePlatforms": [
-        "Editor"
-    ],
+    "name": "JCMG.XNode",
+    "references": [],
+    "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

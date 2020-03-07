@@ -1,4 +1,4 @@
-namespace XNode
+namespace JCMG.xNode
 {
 	/// <summary>
 	///     Used by <see cref = "InputAttribute"/> and <see cref = "OutputAttribute"/> to determine when to display the
