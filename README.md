@@ -1,5 +1,6 @@
 [![GitHub issues](https://img.shields.io/github/issues/jeffcampbellmakesgames/nodey.svg)](https://github.com/jeffcampbellmakesgames/nodey/issues)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/jeffcampbellmakesgames/nodey/master/LICENSE.md)
+[![openupm](https://img.shields.io/npm/v/com.jeffcampbellmakesgames.nodey?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.jeffcampbellmakesgames.nodey/)
 
 # Nodey
 A library to enable developers to easily make node-graph enhanced editor and runtime tools and systems.
