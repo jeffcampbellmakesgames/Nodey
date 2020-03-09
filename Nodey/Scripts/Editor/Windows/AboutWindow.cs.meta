@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 25d078fe1f1994f41905ec0073fde1f7
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_ViewDataDictionary: {instanceID: 0}
+  - _socialShareImage: {fileID: 2800000, guid: fd710c8824621de459aabb35dcef2ff1, type: 3}
+  - _portraitImage: {fileID: 2800000, guid: 99897e504c32db549a306424900e347d, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
