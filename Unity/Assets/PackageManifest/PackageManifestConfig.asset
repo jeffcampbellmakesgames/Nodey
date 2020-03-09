@@ -19,7 +19,7 @@ MonoBehaviour:
   legacyPackageDestinationPath: 
   packageName: com.jeffcampbellmakesgames.nodey
   displayName: JCMG Nodey
-  packageVersion: 1.2.0
+  packageVersion: 1.2.1
   unityVersion: 2019.1
   description: JCMG Nodey provides a set of APIs and an editor interface for creating
     and editing custom node graphs. It is a fork of XNode that aims to support up
