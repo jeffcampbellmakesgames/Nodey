@@ -6,6 +6,8 @@ A library to enable developers to easily make node-graph enhanced editor and run
 
 Support Nodey on [KO-FI](https://ko-fi.com/stampyturtle)
 
+![Example Nodey Graph](/Images/ExampleNodeyGraph.png)
+
 ## Overview
 Thinking of developing a node-based plugin? Then this is for you.
 
